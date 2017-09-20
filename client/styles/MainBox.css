@@ -1,0 +1,6 @@
+#MainBox{
+    background: red;
+    flex: 1;
+    width: 600px;
+    overflow-y: auto;
+}
