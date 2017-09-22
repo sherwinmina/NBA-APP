@@ -1,5 +1,9 @@
 import React from 'react'
-
+import './gamecard.scss'
+// import '../../../public/teams/76ers.png'
+// console.log("../../../public/teams/76ers.png")
+//  src={require('../../../public/teams/ind.png')}
+const indiana = "/public/teams/ind.png";
 import {
   Card,
   CardActions,
@@ -17,9 +21,9 @@ let GameCard = (props) => {
         <h3>{item.awayTeam.City}</h3> @ <h3>{item.homeTeam.City}</h3>
       </CardHeader>
       <CardMedia>
-        <img src="https://usatftw.files.wordpress.com/2016/05/logo-golden-state-warriors.png?w=1000&h=600&crop=1" alt="" />
+        <img src={indiana} alt="" />
       </CardMedia>
-      <CardText>{item.time}</CardText>
+      <CardText className="gamecard">{item.time}</CardText>
     </Card>
   ));
    
@@ -34,7 +38,7 @@ const cardStyle = {
   header:{
     color: '#0085CAe',
     height: '20px',
-    background: "#0085CA"
+    // background: "#0085CA"
   },
   width: '85%',
   display: 'flex',

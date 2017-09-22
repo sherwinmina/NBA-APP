@@ -28,15 +28,12 @@ class LeftBox extends Component {
 export default LeftBox
 
 const styles ={
-  color: 'white',
   background:'#C4CED3',
   flex: 1,
-  flexDirection: 'column',
-  minWidth: "200px",
-  minHeight: '100vh',
-  maxWidth: '200px',
+  flexDirection: 'row',
+  minWidth: '180px',
+  maxWidth: '30%',
   width: '200px',
-  height: '400px',
   link: {
     textDecoration: 'none', color: 'grey'
   }
