@@ -3,28 +3,38 @@ import './gamecard.scss'
 // import '../../../public/teams/76ers.png'
 // console.log("../../../public/teams/76ers.png")
 //  src={require('../../../public/teams/ind.png')}
-const indiana = "/public/teams/ind.png";
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardText
-} from "material-ui/Card";
+const teams = "/public/teams/";
+
 
 let GameCard = (props) => {
   // console.log(props.games)
   const renderTime = props.games.map(item => (
-    <Card style={cardStyle} key={item.id}>
-      <CardHeader title={item.date} style={cardStyle.header}>
-        <h3>{item.awayTeam.City}</h3> @ <h3>{item.homeTeam.City}</h3>
-      </CardHeader>
-      <CardMedia>
-        <img src={indiana} alt="" />
-      </CardMedia>
-      <CardText className="gamecard">{item.time}</CardText>
-    </Card>
+    <div className="game-card" key={item.id}>
+      <div className='header-info'>
+        <p className="date">{item.date} </p>
+        <p className="time">{item.time}</p>
+      </div>
+
+      <div className="match-up">
+        <div className="team">
+          <h1>{item.awayTeam.City}</h1>
+          <img
+            className="logo"
+            src={`${teams}${item.awayTeam.Name}.png`}
+            alt=""
+          />
+        </div>
+        <h3 style={{paddingTop: '80px'}}>@</h3>
+        <div className="team">
+          <h1>{item.homeTeam.City}</h1>
+          <img
+            className="logo"
+            src={`${teams}${item.homeTeam.Name}.png`}
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
   ));
    
   
@@ -34,17 +44,5 @@ let GameCard = (props) => {
     </div>;
 }
 
-const cardStyle = {
-  header:{
-    color: '#0085CAe',
-    height: '20px',
-    // background: "#0085CA"
-  },
-  width: '85%',
-  display: 'flex',
-  flexDirection: 'row',
-  margin: '7px',
-  marginLeft: 'auto',
-  marginRight: 'auto'
-}
+
 export default GameCard
