@@ -8,18 +8,14 @@ import InjuryTable from './InjuryTable'
 
 class Injuries extends Component {
   componentDidMount(){
-    this.props.fetchInjuries()
+    if (this.props.injuries.player.length === 0) {
+      this.props.fetchInjuries()
+    }
   }
 
  
   render () {
-    return <div>
-        <h3>
-          <h2>
-            List Up dated on
-          </h2> {this.props.injuries.injuries.lastUpdatedOn}
-        </h3>
-        {console.log(this.props.injuries.player)}
+    return <div style={{paddingTop: '20px'}}>
         <InjuryTable player={this.props.injuries.player} />
       </div>;
   }

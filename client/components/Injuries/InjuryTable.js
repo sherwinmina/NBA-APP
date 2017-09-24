@@ -1,44 +1,33 @@
 import React from 'react';
 
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
+import './Injury.scss'
 
 const InjuryTable = (props) => {
   // const {ID, lastName, firstName} = props.player
-  console.log(props.player.map(item => item.player.ID))
    const renderTable = props.player.map(item => (
-     <TableRow key={item.player.ID}>
-       <TableRowColumn>
+     <tr key={item.player.ID}>
+       <td>
          {item.player.FirstName}  {item.player.LastName}
-       </TableRowColumn>
-       <TableRowColumn>{item.team.Name}</TableRowColumn>
-       <TableRowColumn>{item.injury}</TableRowColumn>
-     </TableRow>
+       </td>
+       <td>{item.team.Name}</td>
+       <td>{item.injury}</td>
+     </tr>
    ));
 
  return <div>
-     <Table style={styles}>
-       <TableHeader>
-         <TableRow>
-           <TableHeaderColumn>Name</TableHeaderColumn>
-           <TableHeaderColumn>Team</TableHeaderColumn>
-           <TableHeaderColumn>Injury</TableHeaderColumn>
-         </TableRow>
-       </TableHeader>
-       <TableBody>{renderTable}</TableBody>
-     </Table>
+     <table>
+       <tbody>
+         <tr>
+           <th>Name</th>
+           <th>Team</th>
+           <th>Injury</th>
+         </tr>
+         {renderTable}
+       </tbody>
+     </table>
    </div>;
 };
 
-const styles ={
-  width: '98%',
-  margin: 'auto'
-}
+
 
 export default InjuryTable;

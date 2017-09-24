@@ -14,8 +14,7 @@ class GameSchedule extends Component {
   
   render() {
     console.log(this.props.games);
-    return  <GameCard {...this.props.games}/>
-   
+    return  <GameCard {...this.props.games}/>  
   }
 }
 

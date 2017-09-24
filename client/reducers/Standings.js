@@ -9,7 +9,7 @@ export default function(state = INITIAL_STATE, action) {
     case FETCH_STANDINGS:
       return {
         ...state,
-        standings: action.payload.data
+        standings: action.payload.data.overallteamstandings.teamstandingsentry
       };
 
     default:

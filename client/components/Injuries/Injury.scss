@@ -1,0 +1,28 @@
+
+table {
+  padding-top: 20px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #dddddd;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  font-size: 18px;
+  background:  #54BBF7;
+  color: #FAFDFF;
+  height: 30px;
+  text-align: left;
+  padding: 8px;
+}
+
+tr{
+  border-bottom: #D8D6D6 solid;
+  border-bottom-width: 1.5px;
+  background-color: #868282;
+}
