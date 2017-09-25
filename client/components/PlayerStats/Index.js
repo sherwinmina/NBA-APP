@@ -2,20 +2,40 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
 import * as actions from "../../actions";
+import './style.scss'
 
 class PlayerStats extends Component {
-
-  componentDidMount() {
-    this.props.fetchPlayer();
+  constructor(props) {
+    super(props);
+    this.state = { name: "" };
   }
 
-  render () {
+  componentDidMount() {
+    // http://api.suredbits.com/nba/v0/stats/curry/stephen
+    // this.props.fetchPlayer();
+  }
+
+  handleNameChange = event => {
+    this.setState({ name: event.target.value });
+  };
+
+  render() {
+    console.log(this.state.name);
     return (
       <div>
-        
-        PlayerStats
+        <h3>Player Stats</h3>
+        <span>
+          <input
+            type="text"
+            placeholder="First Name"
+            value={this.state.name}
+            onChange={this.handleNameChange}
+          />
+          <input type="text" placeholder="Last Name" />
+          <button onClick={console.log('sending')}>Search Player</button>
+        </span>
       </div>
-    )
+    );
   }
 }
 

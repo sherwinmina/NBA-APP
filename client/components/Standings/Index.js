@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 
 import * as actions from "../../actions";
 
-import '../../styles/standings.scss'
+import StandingsTable from './StandingsTable'
+
 
 class Standings extends Component {
   componentDidMount() {
@@ -15,10 +16,7 @@ class Standings extends Component {
 
   render () {
     console.log(this.props.standings.map(item => item.team));
-    return <div className="standings">
-        <h1>Standings</h1>
-        <p></p>
-      </div>;
+    return <StandingsTable {...this.props}/>
   }
 }
 
