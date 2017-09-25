@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import * as actions from "../../actions";
 import './style.scss'
 
+import PlayerCard from './PlayerCard'
+
 class PlayerStats extends Component {
   constructor(props) {
     super(props);
@@ -11,8 +13,7 @@ class PlayerStats extends Component {
   }
 
   componentDidMount() {
-    // http://api.suredbits.com/nba/v0/stats/curry/stephen
-    // this.props.fetchPlayer();
+    this.props.fetchPlayer();
   }
 
   handleNameChange = event => {
@@ -34,6 +35,8 @@ class PlayerStats extends Component {
           <input type="text" placeholder="Last Name" />
           <button onClick={console.log('sending')}>Search Player</button>
         </span>
+
+        <PlayerCard/>
       </div>
     );
   }

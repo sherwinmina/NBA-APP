@@ -19,17 +19,17 @@ export function fetchGames() {
 
 export function fetchPlayer(props) {
   const url = "https://nba-players.herokuapp.com/players/duncan/tim"
-  // axios.all([
-  //     axios.get('/api/seat/models'),
-  //     axios.get('/api/volkswagen/models')
-  //   ])
-  //   .then(axios.spread(function (seat, volkswagen) {
-  //     
-  //   }))
-  //   //.then(response => this.setState({ vehicles: response.data }))
-  //   .catch(error => console.log(error));
+  const request = axios.all([
+      axios.get(' https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/overall_team_standings.json'),
+      axios.get('https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/player_injuries.json?')
+    ])
+    .then(axios.spread(function (photo, stats) {
+      console.log(photo, stats)
+    }).catch(error => console.log(error)).catch(error => console.log(error)));
+  //   .then(response => console.log(photo, stats))
+  //   // .catch(error => console.log(error));
   // }
-  const request = axios.get(`${url}`);
+ 
   return {
     type: FETCH_PLAYER,
     payload: request
