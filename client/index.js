@@ -8,7 +8,6 @@ import thunk from "redux-thunk";
 import promise from 'redux-promise'
 
 import {BrowserRouter} from 'react-router-dom'
-import routes from './routes';
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
