@@ -14,8 +14,14 @@ router.get('/', function(req, res, next) {
   }
 
   function getTeams(){
-    return axios('http://api.suredbits.com/nba/v0/players/phi')
-    .then(response => response.data)
+    return axios(
+      'https://nba-players.herokuapp.com/players/curry/stephen',
+      {
+        responseType: 'arraybuffer'
+      }
+    ).then(response =>
+      new Buffer(response.data, 'binary').toString('base64')
+    )
   }
 
   axios
