@@ -7,7 +7,7 @@ class LeftBox extends Component {
   render () {
     return <List style={styles}>
         <ListItem>
-          <Link style={styles.link} to="/gameschedule">Game Schedule</Link>
+          <Link style={styles.link} to="/">Game Schedule</Link>
         </ListItem>
         <ListItem>
           <Link style={styles.link} to="/PlayerStats">Player Stats</Link>

@@ -15,7 +15,7 @@ class MainBox extends Component {
     return (
       <div id='MainBox'>
         <Switch>
-          <Route exact path="/gameschedule" component={GameSchedule} />
+          <Route exact path="/" component={GameSchedule} />
           <Route path="/PlayerStats" component={PlayerStats} />
           <Route path="/Injuries" component={Injuries} />
           <Route path="/Standings" component={Standings} />
