@@ -5,7 +5,7 @@ class Header extends Component {
     return (
       <div style={styles}>
         <div>
-          <img style={styles.logo} src="../../public/NBALogo.svg.png" alt="" />
+          <img style={styles.logo} src={require("../../public/NBALogo.svg.png")} alt="" />
         </div>
       </div>
     );

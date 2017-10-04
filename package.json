@@ -6,7 +6,9 @@
   "repository": "",
   "scripts": {
     "start": "webpack-dev-server --progress --inline --hot",
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack",
+    "surge": "yarn run webpack -p; surge -p build -d http://nba-app.surge.sh/"
   },
   "author": "",
   "license": "ISC",
