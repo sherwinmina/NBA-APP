@@ -3,7 +3,19 @@ import './PlayerCard.scss'
 
 let PlayerCard = props => {
   let { firstName, lastName, stats } = props
-  console.log(stats.PlayerStats)
+  let {
+    weight,
+    height,
+    fullName,
+    rookieYear,
+    lastYear,
+    uniformNumber,
+    team,
+    position,
+    birthDate
+  } = stats.info
+  let { st, fta, bs, off, pf, fgm, pts, ftm, fga, ast } = stats.stats
+  // console.log(stats.info.weight)
   return (
     <div>
       <table>
@@ -17,11 +29,10 @@ let PlayerCard = props => {
               />
             </th>
             <th>
-              <h2>
-                {firstName} {lastName}
-              </h2>
-              <p>Golden State Warriors</p>
-              <p>#30</p>
+              <h2>{fullName}</h2>
+              <p>{team}</p>
+              <p>#{uniformNumber}</p>
+              <p>{position}</p>
             </th>
             <th />
             <th />
@@ -31,11 +42,11 @@ let PlayerCard = props => {
             <tr>
               <td className="content-border">
                 <h3>HT</h3>
-                <p className="content">6'3</p>
+                <p className="content">{height}</p>
               </td>
               <td className="content-border">
                 <h3>WT </h3>
-                <p className="content">180 lbs</p>
+                <p className="content">{weight} lbs</p>
               </td>
 
               <td className="content-border">
@@ -55,7 +66,7 @@ let PlayerCard = props => {
               </td>
               <td className="content-border">
                 <h3>DRAFT</h3>
-                <p>2009 Round 1 Pick 7</p>
+                <p>{rookieYear} Round 1 Pick 7</p>
               </td>
               <td className="content-border">
                 <h3>EXP</h3>
@@ -65,17 +76,17 @@ let PlayerCard = props => {
 
             <td>
               <tr>
-                <h4>Career Stats</h4>
+                <h4>{lastYear} Stats</h4>
               </tr>
               <h1>PTS</h1>
-              <h2>25.5</h2>
+              <h2>{pts}</h2>
             </td>
             <td>
-              <h1>REB</h1> <h2>4.5</h2>
+              <h1>STL</h1> <h2>{st}</h2>
             </td>
             <td>
               <h1>AST</h1>
-              <h2>6.3</h2>
+              <h2>{ast}</h2>
             </td>
           </tr>
         </tbody>

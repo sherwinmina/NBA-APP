@@ -1,7 +1,8 @@
 import { FETCH_PLAYER } from '../constants/types'
 
 const INITIAL_STATE = {
-  PlayerStats: []
+  info: {},
+  stats: {}
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -9,7 +10,8 @@ export default function(state = INITIAL_STATE, action) {
     case FETCH_PLAYER:
       return {
         ...state,
-        PlayerStats: action.payload
+        info: action.payload.info[0],
+        stats: action.payload.stats[0]
       }
 
     default:
