@@ -1,8 +1,9 @@
-import { FETCH_INJURIES } from "../constants/types";
+import { FETCH_INJURIES } from '../constants/types'
 
 const INITIAL_STATE = {
-  injuries: [], player: []
-};
+  injuries: [],
+  player: []
+}
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -11,9 +12,9 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         injuries: action.payload.data.playerinjuries,
         player: action.payload.data.playerinjuries.playerentry
-      };
+      }
 
     default:
-      return state;
+      return state
   }
 }

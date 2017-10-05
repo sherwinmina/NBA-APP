@@ -1,15 +1,15 @@
-import { FETCH_PLAYER } from '../constants/types'
+import { FETCH_TEAM } from '../constants/types'
 
 const INITIAL_STATE = {
-  PlayerStats: []
+  Roster: []
 }
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case FETCH_PLAYER:
+    case FETCH_TEAM:
       return {
         ...state,
-        PlayerStats: action.payload
+        Roster: action.payload
       }
 
     default:

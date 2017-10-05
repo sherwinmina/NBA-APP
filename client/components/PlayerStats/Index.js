@@ -1,50 +1,62 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-import * as actions from "../../actions";
+import * as actions from '../../actions'
 import './style.scss'
 
 import PlayerCard from './PlayerCard'
 
 class PlayerStats extends Component {
   constructor(props) {
-    super(props);
-    this.state = { name: "" };
+    super(props)
+    this.state = { firstName: 'stephen', lastName: 'curry' }
+
+    this.handleClick = this.handleClick.bind(this)
+    this.handleNameChange = this.handleNameChange.bind(this)
   }
 
   componentDidMount() {
-    this.props.fetchPlayer();
+    this.props.fetchPlayer()
   }
 
   handleNameChange = event => {
-    this.setState({ name: event.target.value });
-  };
+    const name = event.target.name
+    this.setState({ [name]: event.target.value })
+  }
+
+  handleClick() {
+    this.setState({ firstName: '', lastName: '' })
+  }
 
   render() {
-    console.log(this.state.name);
     return (
       <div>
-        <h3>Player Stats</h3>
         <span>
           <input
             type="text"
             placeholder="First Name"
-            value={this.state.name}
+            name="firstName"
+            value={this.state.firstName}
             onChange={this.handleNameChange}
           />
-          <input type="text" placeholder="Last Name" />
-          <button onClick={console.log('sending')}>Search Player</button>
+          <input
+            type="text"
+            placeholder="Last Name"
+            name="lastName"
+            value={this.state.lastName}
+            onChange={this.handleNameChange}
+          />
+          <button onClick={this.handleClick}>Search Player</button>
         </span>
-
-        <PlayerCard/>
+        {console.log(this.props.player)}
+        <PlayerCard {...this.state} stats={this.props.player} />
       </div>
-    );
+    )
   }
 }
 
 function mapStateToProps(state) {
-  return { player: state.playerStats }
+  return { player: state.player }
 }
 
-export default connect(mapStateToProps, actions)(PlayerStats);
-
+export default connect(mapStateToProps, actions)(PlayerStats)

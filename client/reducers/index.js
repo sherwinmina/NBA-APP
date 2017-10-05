@@ -1,14 +1,16 @@
 import { combineReducers } from "redux";
 import games from "./Games";
-import playerStats from "./PlayerStats";
+import player from "./PlayerStats";
 import injuries from "./Injuries";
 import standings from "./Standings";
+import team from './Team'
 
 const rootReducer = combineReducers({
   games,
-  playerStats,
+  player,
   injuries,
-  standings
+  standings,
+  team
 });
 
 export default rootReducer;

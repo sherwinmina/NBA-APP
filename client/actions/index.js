@@ -1,15 +1,15 @@
-import axios from "axios";
-import { FETCH_PLAYER, FETCH_GAMES, FETCH_INJURIES, FETCH_STANDINGS } from "../constants/types";
+import axios from "axios"
+import {
+  FETCH_PLAYER,
+  FETCH_GAMES,
+  FETCH_INJURIES,
+  FETCH_STANDINGS,
+  FETCH_TEAM
+} from '../constants/types'
 
-
-const ROOT_URL = "https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/daily_game_schedule.json?fordate=20161026&";
-// https://nba-players.herokuapp.com/players/duncan/tim
-// http://api.suredbits.com/nba/v0/games/phi/2015
-// https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/player_injuries.json?
-// https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/overall_team_standings.json?
 
 export function fetchGames() {
-  const request = axios.get(`${ROOT_URL}`);
+  const request = axios.get('https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/daily_game_schedule.json?fordate=20161026&');
 
   return {
     type: FETCH_GAMES,
@@ -17,25 +17,25 @@ export function fetchGames() {
   };
 }
 
-export function fetchPlayer(props) {
-  const url = "https://nba-players.herokuapp.com/players/duncan/tim"
-  const request = axios.all([
-      axios.get(' https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/overall_team_standings.json'),
-      axios.get('https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/player_injuries.json?')
-    ])
-    .then(axios.spread(function (photo, stats) {
-      console.log(photo, stats)
-    }).catch(error => console.log(error)).catch(error => console.log(error)));
-  //   .then(response => console.log(photo, stats))
-  //   // .catch(error => console.log(error));
-  // }
- 
+export function fetchPlayer() {
+  const url = 'https://nbaapi.herokuapp.com/players'
+  const request = axios(url).then(res => res.data)
+
   return {
     type: FETCH_PLAYER,
     payload: request
   };
 }
 
+export function fetchTeam() {
+  const url = 'https://nbaapi.herokuapp.com/teams'
+  const request = axios(url).then(res => res.data)
+ 
+  return {
+    type: FETCH_TEAM,
+    payload: request
+  };
+}
 
 export function fetchInjuries() {
   const request = axios.get("https://api.mysportsfeeds.com/v1.1/sample/pull/nba/2016-2017-regular/player_injuries.json?");
