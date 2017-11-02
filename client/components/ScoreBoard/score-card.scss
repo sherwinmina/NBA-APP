@@ -1,0 +1,47 @@
+.game-card {
+  align-self: auto;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px;
+  min-width: 650px;
+  max-width: 650px;
+  background: #39b6e7;
+  background-color: rgba(125, 125, 145, 0.5);
+  border: #cec2c2 solid 1px;
+}
+
+.match-up {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgba(125, 125, 145, 0.2);
+
+  margin: 10px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  background-color: rgba(40, 40, 41, 0.8);
+  min-width: 250px;
+  align-items: center;
+}
+
+.logo {
+  min-height: 150px;
+  min-width: auto;
+  max-height: 150px;
+  max-width: auto;
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  background: #54bbf7;
+  margin: 0;
+  height: 30px;
+  padding: 10px;
+  border-bottom: white solid 1px;
+}

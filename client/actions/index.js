@@ -4,7 +4,8 @@ import {
   FETCH_GAMES,
   FETCH_INJURIES,
   FETCH_STANDINGS,
-  FETCH_TEAM
+  FETCH_TEAM,
+  FETCH_SCORES
 } from '../constants/types'
 
 export function fetchGames() {
@@ -56,6 +57,16 @@ export function fetchStandings() {
 
   return {
     type: FETCH_STANDINGS,
+    payload: request
+  }
+}
+
+export function fetchScores() {
+  const url = 'https://nbaapi.herokuapp.com/scoreBoard'
+  const request = axios(url).then(res => res.data)
+
+  return {
+    type: FETCH_SCORES,
     payload: request
   }
 }

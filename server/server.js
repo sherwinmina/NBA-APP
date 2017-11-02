@@ -7,8 +7,8 @@ var bodyParser = require('body-parser')
 var cors = require('cors')
 
 // routes
-var index = require('./routes/index')
-var scoreBoard = require('./routes/scoreboard')
+// var index = require('./routes/index')
+var scoreBoard = require('./routes/scoreBoard')
 var users = require('./routes/users')
 var games = require('./routes/games')
 var teams = require('./routes/teams')
@@ -31,9 +31,9 @@ app.use(cookieParser())
 app.use(cors())
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index)
+// app.use('/', index)
 app.use('/users', users)
-app.use('/scoreboard', scoreBoard)
+app.use('/scoreBoard', scoreBoard)
 app.use('/games', games)
 app.use('/players', players)
 app.use('/teams', teams)

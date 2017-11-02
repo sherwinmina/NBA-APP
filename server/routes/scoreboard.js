@@ -22,8 +22,10 @@ router.get('/', function(req, res, next) {
   }
 
   axios.all([todaysGame(), getStats()]).then(
-    axios.spread(function(info, stats) {
+    axios.spread(function(todaysGame, stats) {
       res.send({ todaysGame, stats })
     })
   )
 })
+
+module.exports = router
